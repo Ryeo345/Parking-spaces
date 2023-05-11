@@ -7,7 +7,7 @@
     "build": "webpack",
     "build:dev": "npm run build -- --watch --mode=development",
     "test": "set JWT=shhhhh mocha",
-    "test:dev": "DATABASE_URL=postgres://localhost/acme_test_db npm run test -- --watch",
+    "test:dev": "DATABASE_URL=postgres://postgres:code@localhost/garage_db npm run test -- --watch",
     "test:dev:quiet": "QUIET=true npm run test:dev",
     "start:dev": "set JWT=felix && nodemon server/index.js --ignore dist/ --ignore src/ & npm run build:dev",
     "dev": "concurrently -- kill-others \"npm run start:dev\" \"npm run build:dev\""

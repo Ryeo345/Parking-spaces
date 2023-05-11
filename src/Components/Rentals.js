@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import GoogleMap from "./MapData";
+import MapData from "./MapData";
 
 const Rentals = () => {
     const { listings } = useSelector(state => state);
     return (
         <div>
-            <GoogleMap />
+            <MapData />
             <div>
                 {
                     listings.map(listing => {
