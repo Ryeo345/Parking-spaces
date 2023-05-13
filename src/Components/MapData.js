@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { API_KEY } from "../../secrets";
+import secrets from "../../secrets";
 import { useSelector } from "react-redux";
 
 const MapData = () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: API_KEY,
+    googleMapsApiKey: secrets.API_KEY,
   });
   if (!isLoaded) return <div>Loading...</div>;
   return <Map />;

@@ -28,11 +28,23 @@ const Listing = conn.define('listing', {
     width: {
         type: INTEGER,
     },
+    street: {
+        type: STRING,
+    },
     city: {
         type: STRING,
     },
     state: {
         type: STRING,
+    },
+    country: {
+        type: STRING,
+    },
+    zipCode: {
+        type: STRING,
+        validate: {
+            is: /^[0-9]{5}(?:-[0-9]{4})?$/
+        }
     },
     lat: {
         type: DECIMAL,
