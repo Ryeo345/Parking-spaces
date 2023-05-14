@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createListing } from "../store/listings";
 import { TextField, Button, Input } from "@mui/material";
+import { useNavigate} from "react-router-dom";
+
 const CreateListing = () => {
   const { auth } = useSelector((state) => state);
   const [street, setStreet] = useState("");
@@ -18,6 +20,7 @@ const CreateListing = () => {
   const [photo, setPhoto] = useState("");
   const dispatch = useDispatch();
   const ref = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     ref.current.addEventListener("change", (ev) => {
@@ -34,8 +37,9 @@ const CreateListing = () => {
     ev.preventDefault();
     const { id } = auth;
     await dispatch(
-      createListing({ id, street, city, state, country, zipCode , photo, name, width, length, summary, storage_type, monthly_price})
+      createListing({ userId: id, street, city, state, country, zipCode , photo, name, width, length, summary, storage_type, monthly_price})
     );
+    navigate('/');
   };
 
   return (

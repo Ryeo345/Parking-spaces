@@ -18,6 +18,7 @@ app.post("/", async (req, res, next) => {
     const listing = await Listing.create(req.body);
     res.send(listing);
   } catch (ex) {
+    console.log(ex);
     next(ex);
   }
 });

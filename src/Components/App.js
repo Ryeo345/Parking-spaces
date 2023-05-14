@@ -7,6 +7,7 @@ import Rentals from "./Rentals";
 import { fetchListings } from "../store";
 import NavBar from "./NavBar";
 import CreateListing from "./CreateListing";
+import IndividualListing from "./IndividualListing";
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/" element={<Rentals />} />
             <Route path="/login" element={<Login />} />
             <Route path="/createListing" element={<CreateListing />} />
+            <Route path="/listings/:id" element={<IndividualListing />} />
           </Routes>
         </div>
       }
