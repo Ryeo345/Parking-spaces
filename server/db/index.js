@@ -16,6 +16,9 @@ const jsonData = fs.readFileSync(filePath, "utf-8");
 
 const data = JSON.parse(jsonData);
 
+Listing.belongsTo(User);
+User.hasMany(Listing);
+
 const syncAndSeed = async () => {
   await conn.sync({ force: true });
   let reverseGeocodeParams = {

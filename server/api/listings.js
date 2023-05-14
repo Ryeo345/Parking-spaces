@@ -13,4 +13,12 @@ app.get('/', async(req, res, next)=> {
     next(ex);
   }
 });
+app.post("/", async (req, res, next) => {
+  try {
+    const listing = await Listing.create(req.body);
+    res.send(listing);
+  } catch (ex) {
+    next(ex);
+  }
+});
 

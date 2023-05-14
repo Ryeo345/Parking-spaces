@@ -45,6 +45,22 @@ const NavBar = () => {
                 <div id="navRight">
                     {auth.id ? (
                         <div style={{ marginBottom: ".15em" }}>
+                        <div>
+                            <Link
+                                to={`/createListing`}
+                                className={
+                                    view === `/user/${auth.id}`
+                                        ? "main-selected"
+                                        : "main-unselected"
+                                }
+                            >
+                                create a listing
+                            </Link>
+                        </div>
+                        </div>
+                    ): null}
+                    {auth.id ? (
+                        <div style={{ marginBottom: ".15em" }}>
                             <div className="avatar">
                                 <Link
                                     to={`/user/${auth.id}`}
@@ -95,6 +111,7 @@ const NavBar = () => {
                     )}
                 </div>
             </div>
+            {auth.id ? "" : <Login style={style} />}
         </nav>
     );
 };

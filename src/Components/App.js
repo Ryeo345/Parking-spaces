@@ -6,6 +6,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import Rentals from "./Rentals";
 import { fetchListings } from "../store";
 import NavBar from "./NavBar";
+import CreateListing from "./CreateListing";
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Rentals />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/createListing" element={<CreateListing />} />
           </Routes>
         </div>
       }
