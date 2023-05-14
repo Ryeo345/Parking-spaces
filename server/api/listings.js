@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express.Router();
 const { Listing } = require('../db');
+const secrets = require("../../secrets.js");
+const apiKey = secrets.API_KEY;
+const axios = require('axios');
 
 module.exports = app;
 
@@ -15,6 +18,17 @@ app.get('/', async(req, res, next)=> {
 });
 app.post("/", async (req, res, next) => {
   try {
+    let {street, city, state, country} = req.body;
+    street = street.trim().replace(/\s+/g, "%20");
+    city = city.trim().replace(/\s+/g, "%20");
+    state = state.trim().replace(/\s+/g, "%20");
+    country = country.trim().replace(/\s+/g, "%20");
+
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${street}%20${city}%20${state}%20${country}&key=${apiKey}`);
+    console.log('anchor');
+    req.body.lat = response.data.results[0].geometry.location.lat;
+    req.body.long = response.data.results[0].geometry.location.lng;
+
     const listing = await Listing.create(req.body);
     res.send(listing);
   } catch (ex) {
