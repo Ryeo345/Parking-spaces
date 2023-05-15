@@ -20,7 +20,7 @@ const Rentals = () => {
                                 </div>
                                 <div className='listing-info-container'>
                                     <Link to={`/listings/${listing.id}`}>
-                                        {listing.length} X {listing.width}
+                                        <span>{listing.length} X {listing.width}</span>
                                     </Link>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ const Login = ({ style }) => {
     dispatch(attemptLogin(credentials));
     style = { display: "none" };
     console.log(style);
-    navigate("/");
+    navigate("/rentals");
   };
   return (
       <div style={style}>
