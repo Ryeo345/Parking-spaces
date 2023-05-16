@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const conn = require('./conn');
-const { STRING, UUID, UUIDV4, TEXT, INTEGER, DECIMAL} = Sequelize;
+const { STRING, UUID, UUIDV4, TEXT, INTEGER, DECIMAL, ENUM, DATEONLY} = Sequelize;
 
 
 
@@ -54,6 +54,16 @@ const Listing = conn.define('listing', {
     },
     photo: {
         type: TEXT,
+    },
+    tenantId: {
+        type: STRING,
+    },
+    bookingStatus: {
+        type: ENUM("OCCUPIED", "AVAILABLE"),
+        defaultValue: "AVAILABLE",
+    },
+    expiry_date: {
+        type: DATEONLY,
     }
 });
 

@@ -1,6 +1,7 @@
 const conn = require("./conn");
 const User = require("./User");
 const Listing = require("./Listing");
+const Booking = require("./Booking");
 const path = require("path");
 const fs = require("fs");
 const { Client } = require("@googlemaps/google-maps-services-js");
@@ -18,13 +19,24 @@ const data = JSON.parse(jsonData);
 
 Listing.belongsTo(User);
 User.hasMany(Listing);
+User.hasMany(Booking);
+Listing.hasMany(Booking);
 
 const syncAndSeed = async () => {
   await conn.sync({ force: true });
-  let reverseGeocodeParams = {
-    latlng: "40.712776,-74.005974", // Replace with your geocode coordinates
-    key: "YOUR_API_KEY", // Replace with your Google Maps API key
-  };
+
+    const [moe, lucy, larry, ethyl] = await Promise.all([
+        User.create({ username: "moe", password: "123" }),
+        User.create({ username: "lucy", password: "123" }),
+        User.create({ username: "larry", password: "123" }),
+        User.create({ username: "ethyl", password: "123" }),
+    ]);
+
+    const getRandomUserId = () => {
+        const randomIndex = Math.floor(Math.random() * [moe, lucy, larry, ethyl].length);
+        return [moe, lucy, larry, ethyl][randomIndex].id;
+    };
+
   const listingArr = [];
   data.listings.forEach((listing) => {
     let latlng = `${listing.latitude},${listing.longitude}`;
@@ -64,6 +76,7 @@ const syncAndSeed = async () => {
               country: formattedAddress.country,
               zipCode: formattedAddress.zipCode,
               street: formattedAddress.street,
+                userId: getRandomUserId(),
             })
           );
         }
@@ -71,18 +84,14 @@ const syncAndSeed = async () => {
   });
 
   await Promise.all(listingArr);
-  const [moe, lucy, larry, ethyl] = await Promise.all([
-    User.create({ username: "moe", password: "123" }),
-    User.create({ username: "lucy", password: "123" }),
-    User.create({ username: "larry", password: "123" }),
-    User.create({ username: "ethyl", password: "123" }),
-  ]);
+
 
   return {
     users: {
       moe,
       lucy,
       larry,
+        ethyl,
     },
   };
 };
@@ -91,4 +100,5 @@ module.exports = {
   syncAndSeed,
   User,
   Listing,
+  Booking,
 };

@@ -8,6 +8,8 @@ import { fetchListings } from "../store";
 import NavBar from "./NavBar";
 import CreateListing from "./CreateListing";
 import IndividualListing from "./IndividualListing";
+import MyListings from "./MyListings";
+
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -17,19 +19,22 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      {
-        <div>
-          <NavBar />
-          <Routes>
-            <Route path="/rentals" element={<Rentals />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/createListing" element={<CreateListing />} />
-            <Route path="/listings/:id" element={<IndividualListing />} />
-          </Routes>
-        </div>
-      }
-    </div>
+
+      <div>
+        {
+          <div>
+            <NavBar />
+            <Routes>
+              <Route path="/rentals" element={<Rentals />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/createListing" element={<CreateListing />} />
+              <Route path="/MyListings" element={<MyListings />} />
+              <Route path="/listings/:id" element={<IndividualListing />} />
+            </Routes>
+          </div>
+        }
+      </div>
+
   );
 };
 

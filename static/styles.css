@@ -12,7 +12,7 @@
 body {
   font-family: 'Urbanist';
   padding: 1em;
-  margin-top: 0;
+  margin: 0;
 }
 
 form {
@@ -121,6 +121,7 @@ nav {
   flex-wrap:wrap;
   justify-content: center;
   /* border: 1px solid blue; */
+  overflow:hidden;
 }
 
 
@@ -185,7 +186,8 @@ nav {
   width: 95%;
   display: flex;
   justify-content: center;
-  width: 300px;   /* Adjust the desired width */
+  overflow:hidden;
+  width: 200px;   /* Adjust the desired width */
   height: 200px;  /* Adjust the desired height */
   background-size: cover;
   background-position: center;
@@ -195,6 +197,7 @@ nav {
   margin: 10px;
   max-width: 300px;
   max-height: 200px;
+  overflow: hidden;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border: 1px solid black;
@@ -209,4 +212,11 @@ nav {
   max-height: 200px;
 }
 
+.card {
+  z-index: 9999;
+}
 
+.myListing-img {
+  height: 30px;
+  width:30px;
+}

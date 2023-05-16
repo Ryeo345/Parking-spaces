@@ -37,3 +37,13 @@ app.post("/", async (req, res, next) => {
   }
 });
 
+app.put("/:id", async(req, res, next) => {
+  try {
+    const listing = await Listing.findByPk(req.params.id);
+    res.send(await listing.update(req.body));
+  }
+  catch (err) {
+    next(err);
+  }
+})
+

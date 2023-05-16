@@ -47,6 +47,38 @@ const NavBar = () => {
         )}
         <div id="navRight">
           {auth.id ? (
+              <div style={{ marginBottom: ".15em" }}>
+                <div>
+                  <Link
+                      to={`/MyBookings`}
+                      className={
+                        view === `/user/${auth.id}`
+                            ? "main-selected"
+                            : "main-unselected"
+                      }
+                  >
+                    My Bookings
+                  </Link>
+                </div>
+              </div>
+          ) : null}
+          {auth.id ? (
+              <div style={{ marginBottom: ".15em" }}>
+                <div>
+                  <Link
+                      to={`/MyListings`}
+                      className={
+                        view === `/user/${auth.id}`
+                            ? "main-selected"
+                            : "main-unselected"
+                      }
+                  >
+                    My Listings
+                  </Link>
+                </div>
+              </div>
+          ) : null}
+          {auth.id ? (
             <div style={{ marginBottom: ".15em" }}>
               <div>
                 <Link

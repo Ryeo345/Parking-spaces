@@ -6,6 +6,14 @@ const listings = (state = [], action)=> {
     if(action.type === 'CREATE_LISTING'){
         return [...state, action.listing];
     }
+    if (action.type === 'UPDATE_LISTING') {
+        return state.filter(listing => {
+            if(listing.id === action.listing.id) {
+                return action.listing;
+            }
+            return listing;
+        })
+    }
     return state;
 };
 
@@ -22,4 +30,11 @@ export const createListing = (listing) => {
         dispatch({type: "CREATE_LISTING", listing: response.data});
     }
 }
+export const updateListing = (listing) => {
+    return async(dispatch) => {
+        const response = await axios.put(`/api/listings/${listing.id}`, listing);
+        dispatch({type: "UPDATE_LISTING", listing: response.data});
+    }
+}
+
 export default listings;
