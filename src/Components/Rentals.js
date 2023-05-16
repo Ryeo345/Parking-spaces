@@ -4,7 +4,7 @@ import MapData from "./MapData";
 import { Link } from 'react-router-dom'
 
 const Rentals = () => {
-    const { listings } = useSelector(state => state);
+    const { listings , user} = useSelector(state => state);
     return (
         <div id="page-layout">
             <MapData />

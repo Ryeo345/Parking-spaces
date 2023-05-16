@@ -14,6 +14,9 @@ const listings = (state = [], action)=> {
             return listing;
         })
     }
+    if(action.type === 'DELETE_LISTING'){
+        return state.filter(listing => listing.id !== action.listing.id);
+    }
     return state;
 };
 
@@ -37,4 +40,10 @@ export const updateListing = (listing) => {
     }
 }
 
+export const removeListing = (listing) => {
+    return async(dispatch) => {
+        await axios.delete(`/api/listings/${listing.id}`);
+        dispatch({type: "DELETE_LISTING", listing});
+    }
+}
 export default listings;

@@ -47,3 +47,14 @@ app.put("/:id", async(req, res, next) => {
   }
 })
 
+app.delete("/:id", async(req, res, next) => {
+  try {
+    const listing = await Listing.findByPk(req.params.id);
+    await listing.destroy();
+    res.sendStatus(204);
+  }
+  catch (err) {
+    next(err);
+  }
+})
+
