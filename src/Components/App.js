@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { loginWithToken } from "../store";
 import { Link, Routes, Route } from "react-router-dom";
 import Rentals from "./Rentals";
-import { fetchListings } from "../store";
+import { fetchListings, fetchUsers } from "../store";
 import NavBar from "./NavBar";
 import CreateListing from "./CreateListing";
 import IndividualListing from "./IndividualListing";
@@ -17,6 +17,7 @@ const App = () => {
   useEffect(() => {
     dispatch(loginWithToken());
     dispatch(fetchListings());
+    dispatch(fetchUsers());
   }, []);
 
   return (

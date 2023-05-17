@@ -184,7 +184,10 @@ nav {
   display:flex;
   flex-direction: column;
   justify-content:center;
+  height: 200px;
+  width:200px;
   margin: 2em;
+
 
 }
 
@@ -208,6 +211,21 @@ nav {
   border-bottom-right-radius: 5px;
   border: 1px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.listing-info-container {
+  display:flex;
+  flex-direction: row;
+  /*justify-content: space-around;*/
+  width: 20em;
+
+}
+
+.listing-info-container > * {
+  /*display:flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: space-between;*/
+  margin: 10px;
 }
 
 /*infoWindow*/
