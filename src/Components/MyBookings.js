@@ -8,7 +8,6 @@ const MyBookings = () => {
   const { listings, auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   let parkingSpots = listings.filter((listing) => listing.tenantId === auth.id);
-
   useEffect(() => {
       parkingSpots = listings.filter((listing) => listing.tenantId === auth.id);
   }, [listings, auth]);

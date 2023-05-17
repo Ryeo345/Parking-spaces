@@ -7,7 +7,7 @@ const listings = (state = [], action)=> {
         return [...state, action.listing];
     }
     if (action.type === 'UPDATE_LISTING') {
-        return state.filter(listing => {
+        return state.map(listing => {
             if(listing.id === action.listing.id) {
                 return action.listing;
             }

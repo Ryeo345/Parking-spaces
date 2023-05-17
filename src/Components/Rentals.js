@@ -12,7 +12,6 @@ const Rentals = () => {
                 {
                     listings.map(listing => {
                         let host = users.find(user => listing.userId === user.id);
-                        console.log(host);
                         if (!host) {
                             return null;
                         }

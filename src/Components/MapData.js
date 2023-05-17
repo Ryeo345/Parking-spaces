@@ -45,7 +45,7 @@ const MapData = () => {
               position={{ lat: parseFloat(activeMarker.lat), lng: parseFloat(activeMarker.long) }}
               onCloseClick={handleInfoWindowClose}
           >
-            <div>
+            <div className="infoWindow-container">
               <Link to={`/listings/${activeMarker.id}`}>
                 <img className='infoWindow-img' src={activeMarker.photo} />
                 <span><b>{activeMarker.length}X{activeMarker.width}</b> {activeMarker.storage_type} </span>
