@@ -9,7 +9,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <h1>Home</h1>
+      <h1>SpotShare</h1>
       <div>
         Welcome {auth.username}!!
         <button onClick={() => {

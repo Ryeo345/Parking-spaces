@@ -55,7 +55,7 @@ const IndividualListing = () => {
         ) : null}
       </div>
       <div>
-        {listing.bookingStatus === "AVAILABLE" ? (
+        {(listing.bookingStatus === "AVAILABLE" && listing.userId !== auth.id) ? (
           <form onSubmit={rentSpot}>
             <DatePicker
               label="Expiry Date"

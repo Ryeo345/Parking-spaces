@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import CreateListing from "./CreateListing";
 import IndividualListing from "./IndividualListing";
 import MyListings from "./MyListings";
+import MyBookings from "./MyBookings";
 
 const App = () => {
   const { auth } = useSelector((state) => state);
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/createListing" element={<CreateListing />} />
               <Route path="/MyListings" element={<MyListings />} />
+              <Route path="/MyBookings" element={<MyBookings />} />
               <Route path="/listings/:id" element={<IndividualListing />} />
             </Routes>
           </div>

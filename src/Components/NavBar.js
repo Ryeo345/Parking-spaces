@@ -38,11 +38,12 @@ const NavBar = () => {
       <div id="topNav">
         {auth.id ? (
           <Link to="/rentals">
-            <span id="ss-logo">Home</span>
+            <span id="ss-logo">SpotShare <img id="ss-logo-img" src="./static/car.png" /></span>
+
           </Link>
         ) : (
           <Link to="/">
-            <span id="ss-logo">Home</span>
+            <span id="ss-logo">SpotShare <img id="ss-logo-img" src="./static/car.png" /></span>
           </Link>
         )}
         <div id="navRight">
@@ -89,7 +90,7 @@ const NavBar = () => {
                       : "main-unselected"
                   }
                 >
-                  create a listing
+                  Create Listing
                 </Link>
               </div>
             </div>
