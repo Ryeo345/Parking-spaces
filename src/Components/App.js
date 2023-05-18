@@ -12,7 +12,6 @@ import MyListings from "./MyListings";
 import MyBookings from "./MyBookings";
 
 const App = () => {
-  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loginWithToken());
