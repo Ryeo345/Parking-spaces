@@ -13,6 +13,7 @@ import MyBookings from "./MyBookings";
 import Homepage from "./Homepage";
 
 const App = () => {
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loginWithToken());
@@ -26,7 +27,7 @@ const App = () => {
         {
           <div>
             <NavBar />
-            <Homepage />
+            {!auth.id ? <Homepage /> : ""}
             <Routes>
               <Route path="/rentals" element={<Rentals />} />
               <Route path="/login" element={<Login />} />
