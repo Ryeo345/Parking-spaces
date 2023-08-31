@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { GoogleMap, useLoadScript, Marker , InfoWindow} from "@react-google-maps/api";
-import secrets from "../../secrets";
+import secrets from "../../secrets.js";
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 
