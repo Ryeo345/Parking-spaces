@@ -1,4 +1,4 @@
 node_modules
 dist
 secrets.js
-static/seedData.json
+seedData.json
