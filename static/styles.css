@@ -293,3 +293,36 @@ nav {
 .listing-details-info > * {
   margin: 20px;
 }
+
+/*Homepage*/
+
+.Home {
+  position: relative; /* This makes the parent element a reference for the child elements */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Home div {
+  flex: 1;
+  margin: 20px;
+}
+
+.Home img {
+  width: 100vw; /* This makes the image width equal to the viewport width */
+  height: auto; /* This preserves the image aspect ratio */
+  z-index: -1;
+}
+
+.Home p {
+  font-size: 3rem;
+  text-align: center;
+  color: white; /* This makes the text color white */
+  position: absolute; /* This makes the text element overlap the image element */
+  top: 35%; /* This centers the text element vertically */
+  left: 50%; /* This centers the text element horizontally */
+  transform: translate(-50%, -50%); /* This adjusts the position of the text element based on its own size */
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  padding: 10px;
+}

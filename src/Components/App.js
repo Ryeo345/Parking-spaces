@@ -10,6 +10,7 @@ import CreateListing from "./CreateListing";
 import IndividualListing from "./IndividualListing";
 import MyListings from "./MyListings";
 import MyBookings from "./MyBookings";
+import Homepage from "./Homepage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const App = () => {
         {
           <div>
             <NavBar />
+            <Homepage />
             <Routes>
               <Route path="/rentals" element={<Rentals />} />
               <Route path="/login" element={<Login />} />
